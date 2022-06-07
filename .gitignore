@@ -2,6 +2,7 @@
 ./src/img
 ./img
 /src/img
+.env
 # dependencies
 /node_modules
 /.pnp
