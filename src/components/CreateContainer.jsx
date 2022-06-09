@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useStateValue } from "../context/StateProvider";
+import { getAllFoodItems } from "../utils/firebaseFunctions";
+import { actionType } from "../context/reducer";
 import {
   MdFastfood,
   MdCloudUpload,
@@ -18,6 +21,7 @@ import {
 } from "firebase/storage";
 import { saveItem } from "../utils/firebaseFunctions";
 const CreateContainer = () => {
+  const [{ foodItems }, dispatch] = useStateValue();
   const [title, setTitle] = useState("");
   const [calories, setCalories] = useState("");
   const [price, setPrice] = useState("");
@@ -117,6 +121,7 @@ const CreateContainer = () => {
         setIsLoading(false);
       }, 4000);
     }
+    fetchData();
   };
 
   const clearData = () => {
@@ -127,8 +132,17 @@ const CreateContainer = () => {
     setCategory(null);
   };
 
+  const fetchData = async () => {
+    await getAllFoodItems().then((data) => {
+      dispatch({
+        type: actionType.SET_FOOD_ITEMS,
+        foodItems: data,
+      });
+    });
+  };
+
   return (
-    <div className="w-full min-h-screen flex items-center justify-center">
+    <div className="w-full min-h-screen flex items-center justify-center pt-10">
       <div className="w-[90%] md:w-[75%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
         {fields && (
           <motion.p
