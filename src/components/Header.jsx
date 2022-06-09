@@ -141,16 +141,28 @@ const Header = () => {
               )}
 
               <ul className="flex flex-col">
-                <li className="text-base text-textColor hover:headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2">
+                <li
+                  className="text-base text-textColor hover:headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                  onClick={() => setIsMenu(false)}
+                >
                   Home
                 </li>
-                <li className="text-base text-textColor hover:headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2">
+                <li
+                  className="text-base text-textColor hover:headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                  onClick={() => setIsMenu(false)}
+                >
                   Menu
                 </li>
-                <li className="text-base text-textColor hover:headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2">
+                <li
+                  className="text-base text-textColor hover:headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
+                  onClick={() => setIsMenu(false)}
+                >
                   About Us
                 </li>
-                <li className="text-base text-textColor hover:headingColor duration-100 transition-all ease-in-out cursor-pointe hover:bg-slate-100 px-4 py-2">
+                <li
+                  className="text-base text-textColor hover:headingColor duration-100 transition-all ease-in-out cursor-pointe hover:bg-slate-100 px-4 py-2"
+                  onClick={() => setIsMenu(false)}
+                >
                   Service
                 </li>
               </ul>
