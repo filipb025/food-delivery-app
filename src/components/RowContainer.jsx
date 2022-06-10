@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
+import NotFound from "../img/NotFound.svg";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
   const rowContainer = useRef();
@@ -14,22 +15,26 @@ const RowContainer = ({ flag, data, scrollValue }) => {
       className={`w-full flex items-center my-12 scroll-smooth ${
         flag
           ? "overflow-x-scroll scrollbar-none"
-          : "overflow-x-hidden flex-wrap"
+          : "overflow-x-hidden flex-wrap justify-center"
       }`}
     >
-      {data &&
+      {data.length > 0 ? (
         data.map((item) => (
           <div
             key={item.id}
             className="w-275 h-[225px] min-w-[275px] md:min-w-[340px] gap-3 md:w-300 bg-cardOverlay p-2 rounded-lg my-12 backdrop-blur-lg bg-cardOverlay hover:drop-shadow-lg flex flex-col items-center justify-between"
           >
             <div className="w-full flex items-center justify-between">
-              <motion.img
+              <motion.div
+                className="w-40 h-40 -mt-8 drop-shadow-2xl"
                 whileHover={{ scale: 1.2 }}
-                src={item?.imageUrl}
-                alt=""
-                className="w-40 -mt-8 drop-shadow-2xl"
-              />
+              >
+                <img
+                  src={item?.imageUrl}
+                  alt=""
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
               <motion.div
                 whileTap={{ scale: 0.75 }}
                 className="w-8 h-8 rounded-full bg-red-700 flex items-center justify-center cursor-pointer hover:shadow-md"
@@ -51,7 +56,15 @@ const RowContainer = ({ flag, data, scrollValue }) => {
               </div>
             </div>
           </div>
-        ))}
+        ))
+      ) : (
+        <div className="w-full flex flex-col items-center justify-center">
+          <img className="h-340" src={NotFound} alt="NOT FOUND" />
+          <p className="text-xl text-headingColor font-semibold">
+            Items not available
+          </p>
+        </div>
+      )}
     </div>
   );
 };
