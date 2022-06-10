@@ -21,7 +21,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
         data.map((item) => (
           <div
             key={item.id}
-            className="w-300 h-[225px] min-w-[300px] md:min-w-[340px] gap-3 md:w-340 bg-cardOverlay p-2 rounded-lg my-12 backdrop-blur-lg bg-cardOverlay hover:drop-shadow-lg flex flex-col items-center justify-between"
+            className="w-275 h-[225px] min-w-[275px] md:min-w-[340px] gap-3 md:w-300 bg-cardOverlay p-2 rounded-lg my-12 backdrop-blur-lg bg-cardOverlay hover:drop-shadow-lg flex flex-col items-center justify-between"
           >
             <div className="w-full flex items-center justify-between">
               <motion.img
