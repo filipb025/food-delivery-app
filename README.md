@@ -1,5 +1,7 @@
 # Food Delivery app
 
+LIVE DEMO [https://filipb025.github.io/food-delivery-app/]
+
 This project was created using React, Firebase, Tailwind, Framer motion.
 
 ## Available Scripts
